@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+class FluentController extends Controller
+{
+    public function fluent(){
+        echo "<h1>Fluent Controller<h1>";
+
+        // first of all need to call Str class 
+        $slice = Str::of('Welcome to my YouTube Channel')->after('Welcome to');
+        echo $slice.'<br>';
+
+        $slice2 =Str::of('App\Http\Controllers\Controller')->afterLast('\\');
+        echo $slice2.'<br>';
+
+        $addString =Str::of('Hello')->append('World');
+        echo $addString.'<br>';
+
+        $lowreCase = Str::of("LARAVEL 8")->lower();
+        echo $lowreCase.'<br>';
+
+        $replaceCase = Str::of("LARAVEL 7.0")->replace('7.0','8.0');
+        echo $replaceCase.'<br>';
+
+        $title = Str::of("leravel feramwork for Php")->title();
+        echo $title.'<br>';
+
+        $slug = Str::of("leravel framework 8")->slug('-');
+        echo $slug.'<br>';
+
+        $subStr = Str::of("Have a great day")->substr('8'); //substr('first_char, how many char')show after 8 char
+        echo $subStr.'<br>';
+
+        $trim = Str::of("/weakanda/")->trim('/');
+        echo $trim.'<br>';
+
+        $upperCase = Str::of("Why not we do that type of things.")->upper('/');
+        echo $upperCase.'<br>';
+    }
+}
